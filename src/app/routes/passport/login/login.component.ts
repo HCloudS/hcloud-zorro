@@ -45,15 +45,19 @@ export class UserLoginComponent implements OnDestroy {
   get userName() {
     return this.form.controls.userName;
   }
+
   get password() {
     return this.form.controls.password;
   }
+
   get mobile() {
     return this.form.controls.mobile;
   }
+
   get captcha() {
     return this.form.controls.captcha;
   }
+
   form: FormGroup;
   error = '';
   type = 0;
@@ -85,7 +89,6 @@ export class UserLoginComponent implements OnDestroy {
   }
 
   // #endregion
-
   submit() {
     this.error = '';
     if (this.type === 0) {
@@ -129,13 +132,12 @@ export class UserLoginComponent implements OnDestroy {
           if (url.includes('/passport')) {
             url = '/';
           }
-          this.router.navigateByUrl(url);
+          this.router.navigateByUrl(url).then(r => console.log('redirect to / path'));
         });
       });
   }
 
   // #region social
-
   open(type: string, openType: SocialOpenType = 'href') {
     let url = ``;
     let callback = ``;
@@ -170,7 +172,7 @@ export class UserLoginComponent implements OnDestroy {
         .subscribe(res => {
           if (res) {
             this.settingsService.setUser(res);
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/').then(r => console.log('redirect to / path'));
           }
         });
     } else {
@@ -181,7 +183,6 @@ export class UserLoginComponent implements OnDestroy {
   }
 
   // #endregion
-
   ngOnDestroy(): void {
     if (this.interval$) {
       clearInterval(this.interval$);
