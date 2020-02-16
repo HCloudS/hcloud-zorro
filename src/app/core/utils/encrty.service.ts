@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {JSEncrypt} from '../../../assets/jsencrypt/jsencrypt';
+// import {JSEncrypt} from '../../../assets/jsencrypt/jsencrypt';
 
 @Injectable()
 export class EncrtyService {
 
-  jsEncrypt: JSEncrypt;
+  // jsEncrypt: JSEncrypt;
 
   private = 'MIIEowIBAAKCAQEAxxCSrFW0M+Kx5lP8qzgEIX40Ep5ErbmIbGxoGmBXcU5tIOvxTAEqa+GUo1MwwNZwzwPt2g4eqHQt1' +
     'v7XHLuyfKNbAD81YfjzC2UUKJnmdC6SpkXWIa2xjeALrK6Pbb0QONtIAxP1siVi5xNLudCQnGgHHFX5HkH1PsDylBNX0qHeqH7' +
@@ -24,9 +24,9 @@ export class EncrtyService {
     'JcLj0DdGh+EszOiGEmnFk9TEtZ2TtfBClasYK6+SVYP2FgLv1tu3sYAvlUqNX4/nPxD5yKgUw6Us';
 
   constructor() {
-    this.jsEncrypt = new JSEncrypt({
-      default_key_size: 2048,
-    });
+    // this.jsEncrypt = new JSEncrypt({
+    //   default_key_size: 2048,
+    // });
   }
 
   /**
@@ -36,8 +36,9 @@ export class EncrtyService {
    * @param inputValue 待加密字符
    */
   encryptClick(inputValue: string): string {
-    this.jsEncrypt.setPrivateKey(this.private);
-    const rsa = this.jsEncrypt.encrypt(inputValue);
-    return rsa.toString();
+    // this.jsEncrypt.setPrivateKey(this.private);
+    // const rsa = this.jsEncrypt.encrypt(inputValue);
+    // return rsa.toString();
+    return ""
   }
 }
